@@ -1,7 +1,6 @@
 package com.javadevs.JavaDevs.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
