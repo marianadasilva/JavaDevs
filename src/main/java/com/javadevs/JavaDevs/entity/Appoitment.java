@@ -1,13 +1,20 @@
 package com.javadevs.JavaDevs.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Appoitment {
+
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private boolean status;
     private Date date;
     private double amount;
-    private Actor actor;
+    private ActorEntity actor;
 
     public int getId() {
         return id;
@@ -17,11 +24,11 @@ public class Appoitment {
         this.id = id;
     }
 
-    public Actor getActor() {
+    public ActorEntity getActor() {
         return actor;
     }
 
-    public void setActor(Actor actor) {
+    public void setActor(ActorEntity actor) {
         this.actor = actor;
     }
 
