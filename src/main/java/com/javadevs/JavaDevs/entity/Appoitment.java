@@ -1,20 +1,24 @@
 package com.javadevs.JavaDevs.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Appoitment {
 
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "status")
     private boolean status;
+
+    @Column(name = "date")
     private Date date;
+
+    @Column(name = "amount")
     private double amount;
-    private ActorEntity actor;
 
     public int getId() {
         return id;
@@ -22,14 +26,6 @@ public class Appoitment {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public ActorEntity getActor() {
-        return actor;
-    }
-
-    public void setActor(ActorEntity actor) {
-        this.actor = actor;
     }
 
     public boolean isStatus() {
