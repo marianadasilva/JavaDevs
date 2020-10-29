@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Appoitment {
+public class Appointment {
 
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -55,4 +55,6 @@ public class Appoitment {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+
 }
