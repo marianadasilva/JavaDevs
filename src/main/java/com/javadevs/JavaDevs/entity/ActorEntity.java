@@ -1,7 +1,6 @@
 package com.javadevs.JavaDevs.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class ActorEntity {
@@ -14,9 +13,6 @@ public class ActorEntity {
 
     @Column(name = "amount")
     private double amount;
-
-    @Column(name = "id")
-    private int id;
 
     public String getGender() {
         return gender;
