@@ -1,11 +1,16 @@
 package com.javadevs.JavaDevs.entity;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class ActorEntity {
+
+    @Column(name = "gender")
     private String gender;
-    private double amout;
-    private List<String> habilities;
+
+    @Column(name = "amount")
+    private double amount;
 
     public String getGender() {
         return gender;
@@ -15,19 +20,12 @@ public class ActorEntity {
         this.gender = gender;
     }
 
-    public double getAmout() {
-        return amout;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setAmout(double amout) {
-        this.amout = amout;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
-    public List<String> getHabilities() {
-        return habilities;
-    }
-
-    public void setHabilities(List<String> habilities) {
-        this.habilities = habilities;
-    }
 }
