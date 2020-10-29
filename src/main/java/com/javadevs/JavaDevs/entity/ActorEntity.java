@@ -2,6 +2,7 @@ package com.javadevs.JavaDevs.entity;
 
 import javax.persistence.*;
 
+
 @Entity
 public class ActorEntity {
     @Id
