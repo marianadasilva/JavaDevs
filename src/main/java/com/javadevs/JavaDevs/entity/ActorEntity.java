@@ -5,6 +5,9 @@ import java.util.List;
 
 @Entity
 public class ActorEntity {
+    @Id
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "gender")
     private String gender;

@@ -1,8 +1,15 @@
 package com.javadevs.JavaDevs.entity;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 
+@Entity
 public class Admin {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "status")
     private double maxAmount;
 
     @Column(name = "maxAmount")

@@ -1,17 +1,19 @@
 package com.javadevs.JavaDevs.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id;
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "name")
     private  String name;
+
+    @Column(name = "password")
     private String password;
 
     public int getId() {
@@ -30,8 +32,11 @@ public class User {
         this.name = name;
     }
 
-
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
