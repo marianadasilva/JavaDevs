@@ -1,8 +1,14 @@
-com/javadevs/JavaDevs/repository/ActorRepository.java
- com.javadevs.JavaDevs.repository.ActorRepository
-com/javadevs/JavaDevs/JavaDevsApplication.java
- com.javadevs.JavaDevs.JavaDevsApplication
 com/javadevs/JavaDevs/entity/ActorEntity.java
  com.javadevs.JavaDevs.entity.ActorEntity
+com/javadevs/JavaDevs/JavaDevsApplication.java
+ com.javadevs.JavaDevs.JavaDevsApplication
+com/javadevs/JavaDevs/entity/Admin.java
+ com.javadevs.JavaDevs.entity.Admin
+com/javadevs/JavaDevs/repository/ActorRepository.java
+ com.javadevs.JavaDevs.repository.ActorRepository
+com/javadevs/JavaDevs/entity/User.java
+ com.javadevs.JavaDevs.entity.User
+com/javadevs/JavaDevs/entity/Appoitment.java
+ com.javadevs.JavaDevs.entity.Appoitment
 com/javadevs/JavaDevs/controller/ActorController.java
  com.javadevs.JavaDevs.controller.ActorController
