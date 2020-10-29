@@ -19,4 +19,21 @@ public class ActorService {
     public List<ActorEntity> getAllActor() {
         return (List<ActorEntity>) repository.findAll();
     }
+
+    public ActorEntity getActorById(int actorId) {
+        return repository.findById(actorId).orElseThrow();
+    }
+
+    public ActorEntity putActor(int actorId, ActorEntity actor) {
+        ActorEntity updateActor = repository.findById(actorId).orElseThrow();
+        updateActor.setAmount(actor.getAmount());
+        updateActor.setGender(actor.getGender());
+        repository.save(updateActor);
+        return updateActor;
+    }
+
+    public void deleteActor(int actorId) {
+        ActorEntity deleteActor = repository.findById(actorId).orElseThrow();
+        repository.delete(deleteActor);
+    }
 }
