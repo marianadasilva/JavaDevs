@@ -1,6 +1,7 @@
 package com.javadevs.JavaDevs.controller;
 
-import com.javadevs.JavaDevs.entity.ActorEntity;
+import com.javadevs.JavaDevs.entity.Actor;
+import com.javadevs.JavaDevs.entity.User;
 import com.javadevs.JavaDevs.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,24 +17,24 @@ public class ActorController {
     private ActorService service;
 
     @PostMapping
-    public ResponseEntity<ActorEntity> createNewActor(@RequestBody ActorEntity actor) {
-        ActorEntity savedActor = service.saveActor(actor);
+    public ResponseEntity<Actor> createNewActor(@RequestBody Actor actor) {
+        Actor savedActor = service.saveActor(actor);
 
         return ResponseEntity.ok(savedActor);
     }
 
     @GetMapping
-    public ResponseEntity<List<ActorEntity>> getAllActor() {
+    public ResponseEntity<List<Actor>> getAllActor() {
         return ResponseEntity.ok(service.getAllActor());
     }
 
     @GetMapping("/{actorId}")
-    public ResponseEntity<ActorEntity> getActorById(@PathVariable int actorId) {
+    public ResponseEntity<Actor> getActorById(@PathVariable int actorId) {
         return ResponseEntity.ok(service.getActorById(actorId));
     }
 
     @PutMapping("/{actorId}")
-    public ResponseEntity<ActorEntity> putTodoList(@PathVariable int actorId, @RequestBody ActorEntity actor) {
+    public ResponseEntity<Actor> putTodoList(@PathVariable int actorId, @RequestBody Actor actor) {
         return ResponseEntity.ok(service.putActor(actorId, actor));
     }
 
@@ -42,4 +43,13 @@ public class ActorController {
         service.deleteActor(actorId);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
+
+    @PostMapping("/signup")
+    public ResponseEntity<User> createNewActor(@RequestBody User admin) {
+        User savedActor = service.save(admin);
+
+        return ResponseEntity.ok(savedActor);
+    }
+
+
 }

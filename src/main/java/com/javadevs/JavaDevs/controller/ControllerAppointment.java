@@ -12,7 +12,7 @@ public class ControllerAppointment {
 
     private AppointmentService service;
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Appointment> createNewAppointment(@RequestBody Appointment appointment ){
         Appointment savedAppointment = service.saveAppointment(appointment);
         return ResponseEntity.ok(savedAppointment);

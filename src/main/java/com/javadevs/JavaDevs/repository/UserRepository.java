@@ -1,10 +1,11 @@
 package com.javadevs.JavaDevs.repository;
 
-import com.javadevs.JavaDevs.entity.Actor;
+import com.javadevs.JavaDevs.entity.Admin;
+import com.javadevs.JavaDevs.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public interface ActorRepository extends CrudRepository<Actor, Integer>  {
+public interface UserRepository extends CrudRepository<User, Integer> {
 
 }
