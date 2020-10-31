@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 @Entity
 public class ActorEntity {
+
     @Id
     @Column(name = "id")
     private int id;

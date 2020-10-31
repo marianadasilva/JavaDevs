@@ -1,6 +1,11 @@
 package com.javadevs.JavaDevs.entity;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -11,8 +16,13 @@ public class Appointment {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "status")
     private boolean status;
-    private Date date;
+
+    @Column(name = "date")
+    private Timestamp date;
+
+    @Column(name = "amount")
     private double amount;
 
     public int getId() {
@@ -35,7 +45,7 @@ public class Appointment {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 
