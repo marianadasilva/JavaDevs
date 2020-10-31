@@ -8,5 +8,4 @@ import org.springframework.stereotype.Component;
 public interface AppointmentRepository extends CrudRepository<Appointment,Integer> {
 
 
-
 }
