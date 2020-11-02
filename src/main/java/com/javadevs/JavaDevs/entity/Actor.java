@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 
 @Entity
-public class ActorEntity {
-
+@Table(name = "actors")
+public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,6 +16,21 @@ public class ActorEntity {
 
     @Column(name = "amount")
     private double amount;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    public Actor() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getGender() {
         return gender;

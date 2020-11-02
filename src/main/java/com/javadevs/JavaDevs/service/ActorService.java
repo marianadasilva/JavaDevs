@@ -1,7 +1,9 @@
 package com.javadevs.JavaDevs.service;
 
-import com.javadevs.JavaDevs.entity.ActorEntity;
+import com.javadevs.JavaDevs.entity.Actor;
+import com.javadevs.JavaDevs.entity.User;
 import com.javadevs.JavaDevs.repository.ActorRepository;
+import com.javadevs.JavaDevs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,20 +14,23 @@ public class ActorService {
     @Autowired
     private ActorRepository repository;
 
-    public ActorEntity saveActor(ActorEntity actor) {
+    @Autowired
+    private UserRepository userRepository;
+
+    public Actor saveActor(Actor actor) {
         return repository.save(actor);
     }
 
-    public List<ActorEntity> getAllActor() {
-        return (List<ActorEntity>) repository.findAll();
+    public List<Actor> getAllActor() {
+        return (List<Actor>) repository.findAll();
     }
 
-    public ActorEntity getActorById(int actorId) {
+    public Actor getActorById(int actorId) {
         return repository.findById(actorId).orElseThrow();
     }
 
-    public ActorEntity putActor(int actorId, ActorEntity actor) {
-        ActorEntity updateActor = repository.findById(actorId).orElseThrow();
+    public Actor putActor(int actorId, Actor actor) {
+        Actor updateActor = repository.findById(actorId).orElseThrow();
         updateActor.setAmount(actor.getAmount());
         updateActor.setGender(actor.getGender());
         repository.save(updateActor);
@@ -33,7 +38,15 @@ public class ActorService {
     }
 
     public void deleteActor(int actorId) {
-        ActorEntity deleteActor = repository.findById(actorId).orElseThrow();
+        Actor deleteActor = repository.findById(actorId).orElseThrow();
         repository.delete(deleteActor);
+    }
+
+    public User save(User user) {
+        Actor actor = new Actor();
+        repository.save(actor);
+
+        user.setActorEntity(actor);
+        return userRepository.save(user);
     }
 }

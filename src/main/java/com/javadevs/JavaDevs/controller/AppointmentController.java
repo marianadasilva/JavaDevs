@@ -1,12 +1,10 @@
 package com.javadevs.JavaDevs.controller;
 
-import com.javadevs.JavaDevs.entity.ActorEntity;
 import com.javadevs.JavaDevs.service.AppointmentService;
 import com.javadevs.JavaDevs.entity.Appointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -3,6 +3,7 @@ package com.javadevs.JavaDevs.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -11,10 +12,46 @@ public class User {
     private int id;
 
     @Column(name = "name")
-    private  String name;
+    private String name;
+
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "password")
     private String password;
+
+    @OneToOne(mappedBy = "user")
+    private Admin admin;
+
+    @OneToOne(mappedBy = "user")
+    private Actor actor;
+
+    public User() {
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActorEntity(Actor actor) {
+        this.actor = actor;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public int getId() {
         return id;
