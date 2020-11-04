@@ -38,11 +38,6 @@ public class AdminController {
         this.tokenService = tokenService;
     }
 
-    @GetMapping("/teste")
-    public Integer getActorById(@RequestAttribute("idUser") Integer actorId) {
-        return actorId;
-    }
-
     @GetMapping("/actors")
     public ResponseEntity<List<Actor>> getAllActor(@RequestAttribute("idUser") Integer actorId) {
         return ResponseEntity.ok(actorService.getAllActor());

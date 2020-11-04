@@ -43,6 +43,11 @@ public class LoginFilter implements Filter  {
             return;
         }
 
+        if (httpRequest.getServletPath().startsWith("/api/actor/signup")) {
+            chain.doFilter(request, response);
+            return;
+        }
+
         if (httpRequest.getServletPath().startsWith("/api/login")) {
             chain.doFilter(request, response);
             return;
