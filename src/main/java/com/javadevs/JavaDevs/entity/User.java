@@ -20,13 +20,37 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "token")
+    private String token;
+
     @OneToOne(mappedBy = "user")
     private Admin admin;
 
     @OneToOne(mappedBy = "user")
     private Actor actor;
 
+    public User(int id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
     public User() {
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public Admin getAdmin() {
