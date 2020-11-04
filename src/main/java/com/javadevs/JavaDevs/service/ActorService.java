@@ -41,12 +41,4 @@ public class ActorService {
         Actor deleteActor = repository.findById(actorId).orElseThrow();
         repository.delete(deleteActor);
     }
-
-    public User save(User user) {
-        Actor actor = new Actor();
-        repository.save(actor);
-
-        user.setActorEntity(actor);
-        return userRepository.save(user);
-    }
 }

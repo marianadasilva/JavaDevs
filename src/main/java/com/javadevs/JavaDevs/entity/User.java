@@ -14,11 +14,14 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "token")
+    private String token;
 
     @OneToOne(mappedBy = "user")
     private Admin admin;
@@ -26,7 +29,28 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Actor actor;
 
+    public User(int id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
     public User() {
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public Admin getAdmin() {
@@ -41,7 +65,7 @@ public class User {
         return actor;
     }
 
-    public void setActorEntity(Actor actor) {
+    public void setActor(Actor actor) {
         this.actor = actor;
     }
 

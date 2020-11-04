@@ -44,12 +44,5 @@ public class ActorController {
         return new ResponseEntity<>("", HttpStatus.OK);
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<User> createNewActor(@RequestBody User admin) {
-        User savedActor = service.save(admin);
-
-        return ResponseEntity.ok(savedActor);
-    }
-
 
 }
