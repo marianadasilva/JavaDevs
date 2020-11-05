@@ -18,6 +18,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -41,5 +42,14 @@ public class AdminController {
     @GetMapping("/actors")
     public ResponseEntity<List<Actor>> getAllActor(@RequestAttribute("idUser") Integer actorId) {
         return ResponseEntity.ok(actorService.getAllActor());
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Actor>> search(
+            @RequestParam("gender") String gender,
+            @RequestParam("amount") double amount,
+            @RequestParam("quantity") int getQuantity,
+            @RequestParam("date") Timestamp getDate) {
+        return (ResponseEntity<List<Actor>>) ResponseEntity.ok(actorService.search(getQuantity, gender, getDate, amount));
     }
 }

@@ -7,6 +7,7 @@ import com.javadevs.JavaDevs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Component
@@ -40,5 +41,10 @@ public class ActorService {
     public void deleteActor(int actorId) {
         Actor deleteActor = repository.findById(actorId).orElseThrow();
         repository.delete(deleteActor);
+    }
+
+    public List<Actor> search(int quantity, String gender, Timestamp date, double amount) {
+        List<Actor> search = repository.findAllActor(amount, quantity, gender);
+        return search;
     }
 }
