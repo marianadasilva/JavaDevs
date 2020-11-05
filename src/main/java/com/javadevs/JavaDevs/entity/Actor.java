@@ -14,6 +14,9 @@ public class Actor {
     @Column(name = "gender")
     private String gender;
 
+    @Column(name = "genre")
+    private String genre;
+
     @Column(name = "amount")
     private double amount;
 
@@ -34,6 +37,14 @@ public class Actor {
 
     public String getGender() {
         return gender;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public void setGender(String gender) {

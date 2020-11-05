@@ -46,10 +46,9 @@ public class AdminController {
 
     @GetMapping("/search")
     public ResponseEntity<List<Actor>> search(
-            @RequestParam("gender") String gender,
+            @RequestParam("genre") String genre,
             @RequestParam("amount") double amount,
-            @RequestParam("quantity") int getQuantity,
-            @RequestParam("date") Timestamp getDate) {
-        return (ResponseEntity<List<Actor>>) ResponseEntity.ok(actorService.search(getQuantity, gender, getDate, amount));
+            @RequestParam("quantity") int quantity) {
+        return ResponseEntity.ok(actorService.search(quantity, genre, amount));
     }
 }

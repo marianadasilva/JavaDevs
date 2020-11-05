@@ -43,8 +43,8 @@ public class ActorService {
         repository.delete(deleteActor);
     }
 
-    public List<Actor> search(int quantity, String gender, Timestamp date, double amount) {
-        List<Actor> search = repository.findAllActor(amount, quantity, gender);
+    public List<Actor> search(int quantity, String genre, double amount) {
+        List<Actor> search = repository.findAllActor(amount, quantity, genre);
         return search;
     }
 }

@@ -14,8 +14,8 @@ import java.util.List;
 @Component
 public interface ActorRepository extends CrudRepository<Actor, Integer>  {
     @Query(value = "SELECT TOP :quantity * FROM actors " +
-            "WHERE amount >= :amount and gender LIKE '%:gender%'", nativeQuery = true)
-    List<Actor> findAllActor(@Param("amount") double amount, @Param("quantity") int quantity, @Param("gender") String gender);
+            "WHERE amount <= :amount and genre = :genre", nativeQuery = true)
+    List<Actor> findAllActor(@Param("amount") double amount, @Param("quantity") int quantity, @Param("genre") String genre);
 }
 
 
