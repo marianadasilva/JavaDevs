@@ -3,13 +3,11 @@ package com.javadevs.JavaDevs.dto;
 import com.javadevs.JavaDevs.entity.User;
 
 public class UserAuthenticateDTO {
-    private String type;
     private String email;
     private String name;
     private String token;
 
-    public UserAuthenticateDTO(String email, String name, String token, String type) {
-        this.type = type;
+    public UserAuthenticateDTO(String email, String name, String token) {
         this.email = email;
         this.name = name;
         this.token = token;
@@ -18,16 +16,8 @@ public class UserAuthenticateDTO {
     public UserAuthenticateDTO() {
     }
 
-    public static UserAuthenticateDTO toDTO(User user, String type) {
-        return new UserAuthenticateDTO(user.getEmail(), user.getName(), user.getToken(), type);
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public static UserAuthenticateDTO toDTO(User user) {
+        return new UserAuthenticateDTO(user.getEmail(), user.getName(), user.getToken());
     }
 
     public String getEmail() {

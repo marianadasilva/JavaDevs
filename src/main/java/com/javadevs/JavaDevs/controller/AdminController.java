@@ -1,13 +1,12 @@
 package com.javadevs.JavaDevs.controller;
 
+import com.javadevs.JavaDevs.dto.AppointmentRequest;
 import com.javadevs.JavaDevs.entity.Actor;
+import com.javadevs.JavaDevs.entity.Appointment;
 import com.javadevs.JavaDevs.entity.User;
 import com.javadevs.JavaDevs.exception.ExpiredTokenException;
 import com.javadevs.JavaDevs.exception.InvalidTokenException;
-import com.javadevs.JavaDevs.service.ActorService;
-import com.javadevs.JavaDevs.service.AdminService;
-import com.javadevs.JavaDevs.service.TokenService;
-import com.javadevs.JavaDevs.service.UserAuthenticationService;
+import com.javadevs.JavaDevs.service.*;
 import io.jsonwebtoken.Claims;
 import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -26,17 +26,13 @@ import java.util.List;
 @RequestMapping("/api/admin")
 public class AdminController {
 
-    private final AdminService adminService;
     private final ActorService actorService;
-    private final UserAuthenticationService userAuthenticationService;
-    private final TokenService tokenService;
+    private final AppointmentService appointmentService;
 
     @Autowired
-    public AdminController(AdminService adminService, ActorService actorService, UserAuthenticationService userAuthenticationService, TokenService tokenService) {
-        this.adminService = adminService;
+    public AdminController(ActorService actorService, AppointmentService appointmentService) {
         this.actorService = actorService;
-        this.userAuthenticationService = userAuthenticationService;
-        this.tokenService = tokenService;
+        this.appointmentService = appointmentService;
     }
 
     @GetMapping("/actors")
@@ -44,11 +40,18 @@ public class AdminController {
         return ResponseEntity.ok(actorService.getAllActor());
     }
 
+    @PostMapping("/appointment")
+    public ResponseEntity<List<AppointmentRequest>> createNewAppointment(@RequestBody List<AppointmentRequest> appointment) throws ParseException {
+        List<AppointmentRequest> savedAppointment = appointmentService.saveAppointment(appointment);
+        return ResponseEntity.ok(savedAppointment);
+    }
+
     @GetMapping("/search")
     public ResponseEntity<List<Actor>> search(
             @RequestParam("genre") String genre,
             @RequestParam("amount") double amount,
-            @RequestParam("quantity") int quantity) {
-        return ResponseEntity.ok(actorService.search(quantity, genre, amount));
+            @RequestParam("quantity") int quantity,
+            @RequestParam("date") String date) {
+        return ResponseEntity.ok(actorService.search(quantity, genre, amount, date));
     }
 }

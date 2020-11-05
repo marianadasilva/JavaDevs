@@ -4,7 +4,6 @@ import com.javadevs.JavaDevs.dto.UserAuthenticateAdminDTO;
 import com.javadevs.JavaDevs.dto.UserAuthenticateDTO;
 import com.javadevs.JavaDevs.dto.UserRegistrationActorDTO;
 import com.javadevs.JavaDevs.entity.User;
-import com.javadevs.JavaDevs.exception.ExistingEmailException;
 import com.javadevs.JavaDevs.service.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,9 +42,4 @@ public class UserRegistrationController {
         return new ResponseEntity<>(UserAuthenticateAdminDTO.toDTO(user), HttpStatus.CREATED);
     }
 
-    @PostMapping
-    public ResponseEntity<UserAuthenticateDTO> register(@RequestBody User userRegistration, HttpServletResponse response) {
-        User user = userRegistrationService.registrate(userRegistration, response);
-        return new ResponseEntity<>(UserAuthenticateDTO.toDTO(user, "Bearer "), HttpStatus.CREATED);
-    }
 }

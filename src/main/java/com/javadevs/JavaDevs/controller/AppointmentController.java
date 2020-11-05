@@ -16,12 +16,6 @@ public class AppointmentController {
     @Autowired
     private AppointmentService service;
 
-    @PostMapping
-    public ResponseEntity<Appointment> createNewAppointment(@RequestBody Appointment appointment ){
-        Appointment savedAppointment = service.saveAppointment(appointment);
-        return ResponseEntity.ok(savedAppointment);
-    }
-
     @GetMapping
     public ResponseEntity<List<Appointment>> getAllAppointment() {
         return ResponseEntity.ok(service.getAllAppointment());

@@ -24,6 +24,12 @@ public class Actor {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    public Actor(String gender, String genre, double amount) {
+        this.gender = gender;
+        this.genre = genre;
+        this.amount = amount;
+    }
+
     public Actor() {
     }
 

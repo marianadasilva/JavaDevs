@@ -4,14 +4,18 @@ import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.entity.Admin;
 import com.javadevs.JavaDevs.entity.User;
 import com.javadevs.JavaDevs.exception.ExistingEmailException;
+import com.javadevs.JavaDevs.exception.InvalidEmailUserException;
 import com.javadevs.JavaDevs.exception.InvalidLoginException;
 import com.javadevs.JavaDevs.repository.ActorRepository;
 import com.javadevs.JavaDevs.repository.AdminRepository;
 import com.javadevs.JavaDevs.repository.UserRepository;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Service
@@ -43,6 +47,7 @@ public class UserRegistrationService {
         adminRepository.save(admin);
 
         user.setAdmin(admin);
+        user.setPassword(cryptography(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -53,13 +58,24 @@ public class UserRegistrationService {
         actorRepository.save(actor);
 
         user.setActor(actor);
+        user.setPassword(cryptography(user.getPassword()));
         return userRepository.save(user);
     }
-    
-    public User registrate(User user, HttpServletResponse response) {
+
+    private String cryptography(String password) {
+        return DigestUtils.sha1Hex(password + "secret");
+    }
+
+    public User register(User user, HttpServletResponse response) {
         User userExists = userRepository.findByEmail(user.getEmail());
 
-        if (userExists.getPassword().equals(user.getPassword())) {
+        if (userExists == null) {
+            throw new InvalidEmailUserException();
+        }
+
+        String passwordEncrypted = cryptography(user.getPassword());
+
+        if (userExists.getPassword().equals(passwordEncrypted)) {
             String token = tokenService.generatetoken(userExists);
             userExists.setToken(token);
 
@@ -73,5 +89,17 @@ public class UserRegistrationService {
         } else {
             throw new InvalidLoginException();
         }
+    }
+
+    public void unregister(HttpServletRequest request, HttpServletResponse response) {
+        Cookie cookie = WebUtils.getCookie(request, "token");
+
+        if (cookie == null) {
+            return;
+        }
+
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
     }
 }
