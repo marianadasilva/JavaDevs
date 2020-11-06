@@ -54,7 +54,7 @@ A fim de documentar as tarefas produzidas, criamos um board no **Notion** para d
 Estamos  à disposição para maiores esclarecimentos.
 
 [![Linkedin Badge](https://img.shields.io/badge/-Carlos-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carlos-vieira-7b8830197/)](https://www.linkedin.com/in/carlos-vieira-7b8830197/)
-[![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:tgmarinho@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-carlosmcv00@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:carlosmcv00@gmail.com)](mailto:carlosmcv00@gmail.com)
 
 [![Linkedin Badge](https://img.shields.io/badge/-Jefferson-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jefferson-yuiti-dos-santos/)](https://www.linkedin.com/in/jefferson-yuiti-dos-santos/)
 [![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:tgmarinho@gmail.com)
