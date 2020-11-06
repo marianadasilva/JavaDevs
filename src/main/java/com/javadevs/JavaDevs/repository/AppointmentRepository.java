@@ -20,6 +20,6 @@ public interface AppointmentRepository extends CrudRepository<Appointment, Integ
                                               @Param("status") boolean status,
                                               @Param("date") Date date);
 
-    @Query("SELECT count(*) FROM appointments WHERE actor_id = :actor_id")
+    @Query(value = "SELECT count(*) FROM appointments WHERE actor_id = :actor_id", nativeQuery = true)
     long verifyAppointmentExistsToActor(@Param("actor_id") int actor_id);
 }
