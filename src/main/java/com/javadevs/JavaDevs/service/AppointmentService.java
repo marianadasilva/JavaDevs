@@ -50,7 +50,7 @@ public class AppointmentService {
                 user.setEmail((String) result[2]);
             });
 
-            Actor actor = actorRepository.findById(actorRequest.getActor_id()).orElse(new Actor());
+            Actor actor = actorRepository.findById(actorRequest.getActor_id()).orElseThrow(ActorInvalidRequest::new);
 
             if (actor.getGender() == null || actor.getGenre() == null || actor.getAmount() <= 0) {
                 throw new ActorInvalidRequest();

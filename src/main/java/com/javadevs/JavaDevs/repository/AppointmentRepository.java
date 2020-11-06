@@ -1,5 +1,6 @@
 package com.javadevs.JavaDevs.repository;
 
+import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.entity.Appointment;
 import com.javadevs.JavaDevs.entity.User;
 import org.springframework.data.jpa.repository.Query;
@@ -19,4 +20,6 @@ public interface AppointmentRepository extends CrudRepository<Appointment, Integ
                                               @Param("status") boolean status,
                                               @Param("date") Date date);
 
+    @Query("SELECT count(*) FROM appointments WHERE actor_id = :actor_id")
+    long verifyAppointmentExistsToActor(@Param("actor_id") int actor_id);
 }

@@ -3,6 +3,7 @@ package com.javadevs.JavaDevs.service;
 import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.entity.Appointment;
 import com.javadevs.JavaDevs.exception.ActorInvalidRequest;
+import com.javadevs.JavaDevs.exception.AppointmentExistToActor;
 import com.javadevs.JavaDevs.repository.ActorRepository;
 import com.javadevs.JavaDevs.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,12 @@ public class ActorService {
 
     public void deleteActor(int actorId) {
         Actor deleteActor = repository.findById(actorId).orElseThrow(ActorInvalidRequest::new);
+        var appointmentCount = appointmentRepository.verifyAppointmentExistsToActor(actorId);
+
+        if (appointmentCount > 0) {
+            throw new AppointmentExistToActor();
+        }
+
         repository.delete(deleteActor);
     }
 

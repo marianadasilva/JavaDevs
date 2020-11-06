@@ -54,4 +54,13 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
         return handleExceptionInternal(ex, bodyOfResponse,new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
+    @ExceptionHandler (value
+            = { AppointmentExistToActor.class })
+    protected ResponseEntity<Object> handleConflict(AppointmentExistToActor ex, WebRequest request) {
+        String bodyOfResponse = "Existe um compromisso para esse ator(a), delete o comprimisso antes de realizar essa ação!";
+        return handleExceptionInternal(ex, bodyOfResponse,new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+
+
 }
