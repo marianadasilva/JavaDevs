@@ -20,11 +20,11 @@ public class Actor {
     @Column(name = "amount")
     private double amount;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
-    public Actor(String gender, String genre, double amount) {
+    public Actor(int id, String gender, String genre, double amount) {
+        this.id = id;
         this.gender = gender;
         this.genre = genre;
         this.amount = amount;
@@ -65,4 +65,7 @@ public class Actor {
         this.amount = amount;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

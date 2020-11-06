@@ -1,5 +1,6 @@
 package com.javadevs.JavaDevs.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.entity.Admin;
 import com.javadevs.JavaDevs.entity.Appointment;
@@ -12,31 +13,42 @@ import java.util.Date;
 public class AppointmentRequest {
 
     private int id;
-    private String gender;
-    private String genre;
-    private double amount;
+    private int actor_id;
+    private String name;
+    private String email;
     private String date;
     private boolean status;
+    private Actor actor;
 
-    public AppointmentRequest(int id, String gender, String genre, double amount, boolean status, String date) {
+    @JsonIgnore
+    private double amount;
+
+    public AppointmentRequest(int id, int actor_id, String name, String email,
+                              boolean status, String date, Actor actor) {
         this.id = id;
-        this.gender = gender;
-        this.genre = genre;
-        this.amount = amount;
+        this.actor_id = actor_id;
+        this.name = name;
+        this.email = email;
         this.date = date;
         this.status = status;
+        this.actor = actor;
     }
 
-    public AppointmentRequest() {
-    }
-
-    public static AppointmentRequest toDTO(Appointment appointment, Actor actor) {
+    public static AppointmentRequest toDTO(Appointment appointment, Actor actor, User user) {
         Date date = appointment.getDate();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String strDate = dateFormat.format(date);
 
-        return new AppointmentRequest(actor.getId(), actor.getGender(), actor.getGenre(),
-                actor.getAmount(), appointment.isStatus(), strDate);
+        return new AppointmentRequest(appointment.getId(), actor.getId(), user.getName(), user.getEmail(),
+                appointment.isStatus(), strDate, actor);
+    }
+
+    public int getActor_id() {
+        return actor_id;
+    }
+
+    public void setActor_id(int actor_id) {
+        this.actor_id = actor_id;
     }
 
     public int getId() {
@@ -47,28 +59,20 @@ public class AppointmentRequest {
         this.id = id;
     }
 
-    public String getGender() {
-        return gender;
+    public String getName() {
+        return name;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getEmail() {
+        return email;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDate() {
@@ -85,5 +89,21 @@ public class AppointmentRequest {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 }

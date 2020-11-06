@@ -55,7 +55,7 @@ public class UserRegistrationService {
         if (verifyUserExists(user.getEmail())) throw new ExistingEmailException();
 
         Actor actor = new Actor();
-        actorRepository.save(actor);
+        actor.setUser(user);
 
         user.setActor(actor);
         user.setPassword(cryptography(user.getPassword()));

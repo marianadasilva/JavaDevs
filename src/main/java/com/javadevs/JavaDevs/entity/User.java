@@ -26,7 +26,8 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Admin admin;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade=CascadeType.ALL)
+    @JoinColumn(name = "actor_id", referencedColumnName = "id")
     private Actor actor;
 
     public User(int id, String name, String email, String password) {

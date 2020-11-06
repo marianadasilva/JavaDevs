@@ -2,39 +2,28 @@ package com.javadevs.JavaDevs.service;
 
 import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.entity.Appointment;
-import com.javadevs.JavaDevs.entity.User;
+import com.javadevs.JavaDevs.exception.ActorInvalidRequest;
 import com.javadevs.JavaDevs.repository.ActorRepository;
 import com.javadevs.JavaDevs.repository.AppointmentRepository;
-import com.javadevs.JavaDevs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 @Component
 public class ActorService {
 
-    private ActorRepository repository;
-    private UserRepository userRepository;
-    private AppointmentRepository appointmentRepository;
+    private final ActorRepository repository;
+    private final AppointmentRepository appointmentRepository;
 
     @Autowired
-    public ActorService(ActorRepository repository, UserRepository userRepository, AppointmentRepository appointmentRepository) {
+    public ActorService(ActorRepository repository, AppointmentRepository appointmentRepository) {
         this.repository = repository;
-        this.userRepository = userRepository;
         this.appointmentRepository = appointmentRepository;
-    }
-
-    public Actor saveActor(Actor actor) {
-        return repository.save(actor);
     }
 
     public List<Actor> getAllActor() {
@@ -42,19 +31,20 @@ public class ActorService {
     }
 
     public Actor getActorById(int actorId) {
-        return repository.findById(actorId).orElseThrow();
+        return repository.findById(actorId).orElseThrow(ActorInvalidRequest::new);
     }
 
     public Actor putActor(int actorId, Actor actor) {
-        Actor updateActor = repository.findById(actorId).orElseThrow();
+        Actor updateActor = repository.findById(actorId).orElseThrow(ActorInvalidRequest::new);
         updateActor.setAmount(actor.getAmount());
         updateActor.setGender(actor.getGender());
+        updateActor.setGenre(actor.getGenre());
         repository.save(updateActor);
         return updateActor;
     }
 
     public void deleteActor(int actorId) {
-        Actor deleteActor = repository.findById(actorId).orElseThrow();
+        Actor deleteActor = repository.findById(actorId).orElseThrow(ActorInvalidRequest::new);
         repository.delete(deleteActor);
     }
 
