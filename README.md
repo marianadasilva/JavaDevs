@@ -1,7 +1,7 @@
 # BROADCASTER SYSTEM
 
 Olá! É com muito prazer que apresentamos à vocês o sistema que desenvolvemos em grupo. 
-Foi desenvolvido na linguagem **Java** utilizando **Spring** para produzir a REST api de gerenciamento habilidades e salários de uma emissora de TV, ou seja, de seu corpo artístico.
+O sistema foi desenvolvido na linguagem **Java** utilizando **Spring** para produzir a REST api de gerenciamento de habilidades e salários de uma emissora de TV, ou seja, de seu corpo artístico.
 Os responsáveis pelo o desenvolvimento são: Carlos Mendonça, Jefferson Santos, Leonardo Rodrigues e Mariana da Silva.
 
 
@@ -54,7 +54,7 @@ A fim de documentar as tarefas produzidas, criamos um board no **Notion** para d
 Estamos  à disposição para maiores esclarecimentos.
 
 [![Linkedin Badge](https://img.shields.io/badge/-Carlos-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carlos-vieira-7b8830197/)](https://www.linkedin.com/in/carlos-vieira-7b8830197/)
-[![Gmail Badge](https://img.shields.io/badge/-carlosmcv00@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:carlosmcv00@gmail.com)](mailto:carlosmcv00@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-carlos.m.vieira@accenture.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:carlos.m.vieira@accenture.com)](mailto:carlos.m.vieira@accenture.com)
 
 [![Linkedin Badge](https://img.shields.io/badge/-Jefferson-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jefferson-yuiti-dos-santos/)](https://www.linkedin.com/in/jefferson-yuiti-dos-santos/)
 [![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:tgmarinho@gmail.com)
