@@ -40,9 +40,11 @@ Para testar os serviços disponíveis, disponibilizei uma Collection do Insonmia
 
 >[Link para download](https://insomnia.rest/download/#windows)
 
-Feito a instalação, importe a collection: ----------------.
+Feito a instalação, importe URL da collection: **Insomnia_2020-11-07.json**.
 
->[Tutorial para importação de dados no Postman](https://lucassr.medium.com/insomnia-um-poderoso-testador-de-rotas-3d77d2cd8e89#:~:text=Importando%20e%20exportando%20informações&text=Para%20fazer%20a%20importação%2Fexportação,no%20local%20que%20você%20escolheu.)
+Tutorial para importação da colletcion no Insomnia:
+> **Abrir Insomnia > Pressionar Application > Preferences > Data > Escolher opção From URL > Informa a Url citada no tópico anterior e Finalizar**
+
 
 Agora sinta-se à vontade para testar a aplicação, todos os endpoints disponíveis só funcionarão com a aplicação rodando, lembre-se disso.
 
@@ -57,7 +59,7 @@ Estamos  à disposição para maiores esclarecimentos.
 [![Gmail Badge](https://img.shields.io/badge/-carlos.m.vieira@accenture.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:carlos.m.vieira@accenture.com)](mailto:carlos.m.vieira@accenture.com)
 
 [![Linkedin Badge](https://img.shields.io/badge/-Jefferson-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jefferson-yuiti-dos-santos/)](https://www.linkedin.com/in/jefferson-yuiti-dos-santos/)
-[![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:tgmarinho@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-yuiti.santos@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:yuiti.santos@gmail.com)](mailto:yuiti.santos@gmail.com)
 
 
 [![Linkedin Badge](https://img.shields.io/badge/-Leonardo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/devleonardorodrigues/)](https://www.linkedin.com/in/devleonardorodrigues/) 
