@@ -4,8 +4,7 @@ Olá! É com muito prazer que apresentamos à vocês o sistema que desenvolvemos
 O sistema foi desenvolvido na linguagem **Java** utilizando **Spring** para produzir a REST api de gerenciamento de habilidades e salários de uma emissora de TV, ou seja, de seu corpo artístico.
 Os responsáveis pelo o desenvolvimento são: Carlos Mendonça, Jefferson Santos, Leonardo Rodrigues e Mariana da Silva.
 
-
-<p align="center"> <img src="Insomina.png" /> </p>
+<p align="center"> <img src="Insomnia.PNG" /> </p>
 
 # Configuração de ambiente
 **É necessário ter instalado na máquina a versão 11 do Java.**
