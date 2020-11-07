@@ -5,6 +5,8 @@ O sistema foi desenvolvido na linguagem **Java** utilizando **Spring** para prod
 Os responsáveis pelo o desenvolvimento são: Carlos Mendonça, Jefferson Santos, Leonardo Rodrigues e Mariana da Silva.
 
 
+<p align="center"> <img src="Insomina.png" /> </p>
+
 # Configuração de ambiente
 **É necessário ter instalado na máquina a versão 11 do Java.**
 
@@ -45,6 +47,44 @@ Feito a instalação, importe URL da collection: **Insomnia_2020-11-07.json**.
 Tutorial para importação da colletcion no Insomnia:
 > **Abrir Insomnia > Pressionar Application > Preferences > Data > Escolher opção From URL > Informa a Url citada no tópico anterior e Finalizar**
 
+# Descrição das Rotas
+
+
+**Logout**
+
+> (POST) Logout  - Realiza o logout da API.
+
+**Login**
+
+> (POST) Login -  Contém 2 atributos (email e password), para realizar a inserção dos dados do User.
+
+**Appointment**
+
+> (POST) Create Appointment - Realiza inserção de valores no atributos actor_id e date.
+
+> (GET) List Appointment -  Realiza a consulta dos dados em lista dos Appointment.
+
+> (DEL) Delete Appointment - Realiza a exclusão dos dados do usuário de acordo com o Id informado.
+
+> (PUT) Update Appointment - Atualiza os atributos status e date do Appointment.
+
+**Admin**
+
+> (GET) Admin Search - Realiza busca de dados para o Admin.
+
+**Session**
+
+> (POST) Admin/ Signup - Realiza o login para o Admin.
+
+> (POST) Actor / Signup - Realiza o login para o Actor.
+
+**Actor**
+
+> (DEL) Delete Actor  - Realiza a exclusão dos dados do Ator.
+
+> (PUT) Update Actor - Atualiza os atributos gender, genre e amount do ator
+
+> (GET) List All Actor - Realiza a consulta de todos os atores cadastrados.
 
 Agora sinta-se à vontade para testar a aplicação, todos os endpoints disponíveis só funcionarão com a aplicação rodando, lembre-se disso.
 
@@ -67,5 +107,3 @@ Estamos  à disposição para maiores esclarecimentos.
 
 [![Linkedin Badge](https://img.shields.io/badge/-Mariana-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/mariana-da-silva-61a1a21b3/)](https://www.linkedin.com/in/mariana-da-silva-61a1a21b3/)
 [![Gmail Badge](https://img.shields.io/badge/-contactmarianadasilva@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:contactmarianadasilva@gmail.com)](mailto:contactmarianadasilva@gmail.com)
-
-
