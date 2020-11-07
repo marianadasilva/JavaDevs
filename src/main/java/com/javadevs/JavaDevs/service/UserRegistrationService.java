@@ -6,7 +6,6 @@ import com.javadevs.JavaDevs.entity.User;
 import com.javadevs.JavaDevs.exception.ExistingEmailException;
 import com.javadevs.JavaDevs.exception.InvalidEmailUserException;
 import com.javadevs.JavaDevs.exception.InvalidLoginException;
-import com.javadevs.JavaDevs.repository.ActorRepository;
 import com.javadevs.JavaDevs.repository.AdminRepository;
 import com.javadevs.JavaDevs.repository.UserRepository;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -23,16 +22,14 @@ public class UserRegistrationService {
     
     private final UserRepository userRepository;
     private final AdminRepository adminRepository;
-    private final ActorRepository actorRepository;
     private final TokenService tokenService;
     
     @Autowired
     public UserRegistrationService(UserRepository userRepository, TokenService tokenService,
-                                   AdminRepository adminRepository, ActorRepository actorRepository) {
+                                   AdminRepository adminRepository) {
         this.userRepository = userRepository;
         this.tokenService = tokenService;
         this.adminRepository = adminRepository;
-        this.actorRepository = actorRepository;
     }
 
     public boolean verifyUserExists(String email) {
@@ -55,7 +52,7 @@ public class UserRegistrationService {
         if (verifyUserExists(user.getEmail())) throw new ExistingEmailException();
 
         Actor actor = new Actor();
-        actorRepository.save(actor);
+        actor.setUser(user);
 
         user.setActor(actor);
         user.setPassword(cryptography(user.getPassword()));

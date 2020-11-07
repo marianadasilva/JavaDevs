@@ -1,16 +1,13 @@
 package com.javadevs.JavaDevs.entity;
 
-import com.sun.istack.NotNull;
-
+import com.javadevs.JavaDevs.dto.UserRegistrationActorDTO;
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
+@Table(name = "appointments")
 public class Appointment {
 
     @Id
@@ -29,6 +26,9 @@ public class Appointment {
 
     @Column(name = "actor_id")
     private int actor_id;
+
+    @Transient
+    private UserRegistrationActorDTO user;
 
     public int getId() {
         return id;
@@ -73,5 +73,13 @@ public class Appointment {
 
     public void setActor_id(int actor_id) {
         this.actor_id = actor_id;
+    }
+
+    public UserRegistrationActorDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserRegistrationActorDTO user) {
+        this.user = user;
     }
 }

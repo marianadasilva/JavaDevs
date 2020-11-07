@@ -1,9 +1,7 @@
 package com.javadevs.JavaDevs.handler;
 
-import com.javadevs.JavaDevs.exception.ExistingEmailException;
-import com.javadevs.JavaDevs.exception.ExpiredTokenException;
-import com.javadevs.JavaDevs.exception.InvalidEmailUserException;
-import com.javadevs.JavaDevs.exception.InvalidLoginException;
+
+import com.javadevs.JavaDevs.exception.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,5 +41,25 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
         return handleExceptionInternal(ex, bodyOfResponse,new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
+    @ExceptionHandler (value
+            = { AppointmentNotExists.class })
+    protected ResponseEntity<Object> handleConflict(AppointmentNotExists ex, WebRequest request) {
+        String bodyOfResponse = "Nenhum compromisso encontrado";
+        return handleExceptionInternal(ex, bodyOfResponse,new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler (value
+            = { ActorInvalidRequest.class })
+    protected ResponseEntity<Object> handleConflict(ActorInvalidRequest ex, WebRequest request) {
+        String bodyOfResponse = "Ator(a) com parâmetros inválidos, não existente ou não definido, por favor, verifique as informações!";
+        return handleExceptionInternal(ex, bodyOfResponse,new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler (value
+            = { AppointmentExistToActor.class })
+    protected ResponseEntity<Object> handleConflict(AppointmentExistToActor ex, WebRequest request) {
+        String bodyOfResponse = "Existe um compromisso para esse ator(a), delete o comprimisso antes de realizar essa ação!";
+        return handleExceptionInternal(ex, bodyOfResponse,new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
 
 }
