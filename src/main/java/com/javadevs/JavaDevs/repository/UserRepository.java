@@ -1,5 +1,6 @@
 package com.javadevs.JavaDevs.repository;
 
+import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -20,4 +21,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Query("SELECT c.id, c.name, c.email, a.id as actor_id, a.gender, a.genre, a.amount FROM User c JOIN c.actor a")
     List<Object[]> findAllActorUser();
+
 }
