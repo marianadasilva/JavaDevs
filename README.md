@@ -64,6 +64,6 @@ Estamos  à disposição para maiores esclarecimentos.
 [![Hotmail Badge](https://img.shields.io/badge/-leonardo.rodrigues1994@hotmail.com-blue?style=flat-square&logo=Email&logoColor=white&link=mailto:leonardo.rodrigues1994@hotmail.com/)](mailto:leonardo.rodrigues1994@hotmail.com) 
 
 [![Linkedin Badge](https://img.shields.io/badge/-Mariana-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/mariana-da-silva-61a1a21b3/)](https://www.linkedin.com/in/mariana-da-silva-61a1a21b3/)
-[![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:tgmarinho@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:contactmarianadasilva@gmail.com)
 
 
