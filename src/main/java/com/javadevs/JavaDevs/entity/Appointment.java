@@ -1,14 +1,16 @@
 package com.javadevs.JavaDevs.entity;
 
-import com.sun.istack.NotNull;
+import com.javadevs.JavaDevs.dto.UserRegistrationActorDTO;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
+@Table(name = "appointments")
 public class Appointment {
 
     @Id
@@ -20,10 +22,16 @@ public class Appointment {
     private boolean status;
 
     @Column(name = "date")
-    private Timestamp date;
+    private Date date;
 
     @Column(name = "amount")
     private double amount;
+
+    @Column(name = "actor_id")
+    private int actor_id;
+
+    @Transient
+    private UserRegistrationActorDTO user;
 
     public int getId() {
         return id;
@@ -45,8 +53,9 @@ public class Appointment {
         return date;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setDate(String dateTime) throws ParseException {
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        this.date = formatDate.parse(dateTime);
     }
 
     public double getAmount() {
@@ -57,5 +66,23 @@ public class Appointment {
         this.amount = amount;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
+    public int getActor_id() {
+        return actor_id;
+    }
+
+    public void setActor_id(int actor_id) {
+        this.actor_id = actor_id;
+    }
+
+    public UserRegistrationActorDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserRegistrationActorDTO user) {
+        this.user = user;
+    }
 }

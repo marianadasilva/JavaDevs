@@ -74,7 +74,7 @@ public class LoginFilter implements Filter  {
             chain.doFilter(request, response);
         } catch (ExpiredTokenException et) {
             et.printStackTrace();
-            throw et;
+            throw new ExpiredTokenException();
         } catch (Exception e) {
             e.printStackTrace();
             httpResponse.sendError(HttpStatus.UNAUTHORIZED.value());

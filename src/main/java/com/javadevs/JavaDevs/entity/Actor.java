@@ -14,12 +14,21 @@ public class Actor {
     @Column(name = "gender")
     private String gender;
 
+    @Column(name = "genre")
+    private String genre;
+
     @Column(name = "amount")
     private double amount;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne(cascade=CascadeType.ALL)
     private User user;
+
+    public Actor(int id, String gender, String genre, double amount) {
+        this.id = id;
+        this.gender = gender;
+        this.genre = genre;
+        this.amount = amount;
+    }
 
     public Actor() {
     }
@@ -36,6 +45,14 @@ public class Actor {
         return gender;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
     }
@@ -48,4 +65,7 @@ public class Actor {
         this.amount = amount;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

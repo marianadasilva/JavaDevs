@@ -1,7 +1,6 @@
 package com.javadevs.JavaDevs.controller;
 
 import com.javadevs.JavaDevs.entity.Actor;
-import com.javadevs.JavaDevs.entity.User;
 import com.javadevs.JavaDevs.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,17 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/actor")
+@RequestMapping("/api/actor")
 public class ActorController {
     @Autowired
     private ActorService service;
-
-    @PostMapping
-    public ResponseEntity<Actor> createNewActor(@RequestBody Actor actor) {
-        Actor savedActor = service.saveActor(actor);
-
-        return ResponseEntity.ok(savedActor);
-    }
 
     @GetMapping
     public ResponseEntity<List<Actor>> getAllActor() {
@@ -34,7 +26,7 @@ public class ActorController {
     }
 
     @PutMapping("/{actorId}")
-    public ResponseEntity<Actor> putTodoList(@PathVariable int actorId, @RequestBody Actor actor) {
+    public ResponseEntity<Actor> updateActor(@PathVariable int actorId, @RequestBody Actor actor) {
         return ResponseEntity.ok(service.putActor(actorId, actor));
     }
 
@@ -43,6 +35,5 @@ public class ActorController {
         service.deleteActor(actorId);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
-
 
 }

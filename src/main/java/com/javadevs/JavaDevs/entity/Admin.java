@@ -9,7 +9,7 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "status")
+    @Column(name = "maxAmount")
     private double maxAmount;
 
     @Column(nullable = false, name = "maxAmount")
