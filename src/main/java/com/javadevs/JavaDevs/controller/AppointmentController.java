@@ -23,8 +23,13 @@ public class AppointmentController {
     }
 
     @GetMapping("/{appointmentId}")
-    public ResponseEntity<Appointment> getActorById(@PathVariable int appointmentId) {
+    public ResponseEntity<Appointment> getAppointment(@PathVariable int appointmentId) {
         return ResponseEntity.ok(service.getAppointmentById(appointmentId));
+    }
+
+    @GetMapping("/actor/{actor_id}")
+    public ResponseEntity<List<AppointmentResponse>> getAppointmentByActor(@PathVariable int actor_id) {
+        return ResponseEntity.ok(service.getAppointmentActorById(actor_id));
     }
 
     @PutMapping("/{appointmentId}")

@@ -86,26 +86,7 @@ public class AppointmentService {
         var appointments= (List<Appointment>) appointmentRepository.findAll();
         var users = userRepository.findAllActorUser();
 
-        User user = new User();
-
-        for (Appointment appointment : appointments) {
-            users.forEach(result -> {
-                int actor_id = (int) result[3];
-                if (actor_id == appointment.getActor_id()) {
-                    String gender = (String) result[4];
-                    String genre = (String) result[5];
-                    double amount = (double) result[6];
-
-                    user.setId((int) result[0]);
-                    user.setName((String) result[1]);
-                    user.setEmail((String) result[2]);
-                    user.setActor(new Actor(actor_id, gender, genre, amount));
-                    appointment.setUser(UserRegistrationActorDTO.toDTO(user));
-
-                    appointmentsResponse.add(AppointmentResponse.toDTO(appointment));
-                }
-            });
-        }
+        prepareAppointmentResponse(appointmentsResponse, appointments, users, 0);
 
         return appointmentsResponse;
     }
@@ -145,4 +126,47 @@ public class AppointmentService {
         Appointment deleteAppointment = appointmentRepository.findById(appointmentId).orElseThrow();
         appointmentRepository.delete(deleteAppointment);
     }
+
+    public List<AppointmentResponse> getAppointmentActorById(int actor_id) {
+        List<AppointmentResponse> appointmentsResponse = new ArrayList<>();
+
+        var appointments = appointmentRepository.findAppointmentActorById(actor_id);
+
+        if (appointments.size() <= 0) throw new AppointmentNotExists();
+
+        var users = userRepository.findAllActorUserById(actor_id);
+
+        prepareAppointmentResponse(appointmentsResponse, appointments, users, actor_id);
+
+        return appointmentsResponse;
+    }
+
+    public void prepareAppointmentResponse (List<AppointmentResponse> appointmentsResponse, List<Appointment> appointments,
+                                            List<Object[]> users, int id) {
+        User user = new User();
+
+        for (Appointment appointment : appointments) {
+            for (Object[] result : users) {
+                int actor_id = id;
+                if (actor_id == 0) actor_id = (int) result[3];
+
+                if (appointment.getActor_id() != actor_id) {
+                    continue;
+                }
+
+                String gender = (String) result[4];
+                String genre = (String) result[5];
+                double amount = (double) result[6];
+
+                user.setId((int) result[0]);
+                user.setName((String) result[1]);
+                user.setEmail((String) result[2]);
+                user.setActor(new Actor(actor_id, gender, genre, amount));
+                appointment.setUser(UserRegistrationActorDTO.toDTO(user));
+
+                appointmentsResponse.add(AppointmentResponse.toDTO(appointment));
+            }
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.javadevs.JavaDevs.controller;
 
+import com.javadevs.JavaDevs.dto.UserRegistrationActorDTO;
 import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ public class ActorController {
     private ActorService service;
 
     @GetMapping
-    public ResponseEntity<List<Actor>> getAllActor() {
+    public ResponseEntity<List<UserRegistrationActorDTO>> getAllActor() {
         return ResponseEntity.ok(service.getAllActor());
     }
 
     @GetMapping("/{actorId}")
-    public ResponseEntity<Actor> getActorById(@PathVariable int actorId) {
+    public ResponseEntity<UserRegistrationActorDTO> getActorById(@PathVariable int actorId) {
         return ResponseEntity.ok(service.getActorById(actorId));
     }
 
