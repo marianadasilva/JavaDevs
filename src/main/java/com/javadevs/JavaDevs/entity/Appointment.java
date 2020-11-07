@@ -1,9 +1,6 @@
 package com.javadevs.JavaDevs.entity;
 
 import com.javadevs.JavaDevs.dto.UserRegistrationActorDTO;
-import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
-import org.springframework.web.bind.annotation.DeleteMapping;
-
 import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

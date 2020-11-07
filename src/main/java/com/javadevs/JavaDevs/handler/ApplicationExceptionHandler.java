@@ -1,5 +1,6 @@
 package com.javadevs.JavaDevs.handler;
 
+
 import com.javadevs.JavaDevs.exception.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -60,7 +61,5 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
         String bodyOfResponse = "Existe um compromisso para esse ator(a), delete o comprimisso antes de realizar essa ação!";
         return handleExceptionInternal(ex, bodyOfResponse,new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
-
-
 
 }

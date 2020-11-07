@@ -1,10 +1,10 @@
 package com.javadevs.JavaDevs.service;
 
 import com.javadevs.JavaDevs.dto.AppointmentRequest;
-import com.javadevs.JavaDevs.dto.AppointmentResponse;
-import com.javadevs.JavaDevs.dto.UserRegistrationActorDTO;
 import com.javadevs.JavaDevs.entity.Actor;
 import com.javadevs.JavaDevs.entity.Appointment;
+import com.javadevs.JavaDevs.dto.AppointmentResponse;
+import com.javadevs.JavaDevs.dto.UserRegistrationActorDTO;
 import com.javadevs.JavaDevs.entity.User;
 import com.javadevs.JavaDevs.exception.ActorInvalidRequest;
 import com.javadevs.JavaDevs.exception.AppointmentNotExists;
@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Component

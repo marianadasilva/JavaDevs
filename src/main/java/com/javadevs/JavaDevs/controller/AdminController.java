@@ -1,14 +1,13 @@
 package com.javadevs.JavaDevs.controller;
 
 import com.javadevs.JavaDevs.dto.AppointmentRequest;
-import com.javadevs.JavaDevs.dto.AppointmentResponse;
 import com.javadevs.JavaDevs.entity.Actor;
+import com.javadevs.JavaDevs.dto.AppointmentResponse;
 import com.javadevs.JavaDevs.service.ActorService;
 import com.javadevs.JavaDevs.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.text.ParseException;
 import java.util.List;
 

@@ -2,7 +2,6 @@ package com.javadevs.JavaDevs.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.javadevs.JavaDevs.entity.Actor;
-import com.javadevs.JavaDevs.entity.Admin;
 import com.javadevs.JavaDevs.entity.Appointment;
 import com.javadevs.JavaDevs.entity.User;
 
