@@ -44,7 +44,7 @@ Para testar os serviços disponíveis, disponibilizei uma Collection do Insonmia
 Feito a instalação, importe URL da collection: **Insomnia_2020-11-07.json**.
 
 Tutorial para importação da colletcion no Insomnia:
-> **Abrir Insomnia > Pressionar Application > Preferences > Data > Escolher opção From File > Importar o arquivo **Insomnia_2020-11-07.json** que encontra-se na raiz do projeto r**
+> **Abrir Insomnia > Pressionar Application > Preferences > Data > Escolher opção From File > Importar o arquivo **Insomnia_2020-11-07.json** que encontra-se na raiz do projeto.**
 
 # Descrição das Rotas
 
