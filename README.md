@@ -44,7 +44,7 @@ Para testar os serviços disponíveis, disponibilizei uma Collection do Insonmia
 Feito a instalação, importe URL da collection: **Insomnia_2020-11-07.json**.
 
 Tutorial para importação da colletcion no Insomnia:
-> **Abrir Insomnia > Pressionar Application > Preferences > Data > Escolher opção From URL > Informa a Url citada no tópico anterior e Finalizar**
+> **Abrir Insomnia > Pressionar Application > Preferences > Data > Escolher opção From File > Importar o arquivo **Insomnia_2020-11-07.json** que encontra-se na raiz do projeto r**
 
 # Descrição das Rotas
 
@@ -70,6 +70,7 @@ Tutorial para importação da colletcion no Insomnia:
 **Admin**
 
 > (GET) Admin Search - Realiza busca de dados para o Admin.
+> (GET) Admin List - Realiza a busca de acordo com requisitos informados.
 
 **Session**
 
@@ -79,11 +80,20 @@ Tutorial para importação da colletcion no Insomnia:
 
 **Actor**
 
+
+> (GET) Find by Id Actor - Retorna o ator passado o id como parâmetro.
+
+> (GET) List Actor - Realiza a consulta de todos os atores cadastrados.
+
+> (GET)  Appointments Actor - Realiza a consulta por Id de ator.
+
 > (DEL) Delete Actor  - Realiza a exclusão dos dados do Ator.
 
-> (PUT) Update Actor - Atualiza os atributos gender, genre e amount do ator
-
 > (GET) List All Actor - Realiza a consulta de todos os atores cadastrados.
+
+> (PUT) Update Actor - Atualiza os atributos gender, genre e amount do ator.
+
+
 
 Agora sinta-se à vontade para testar a aplicação, todos os endpoints disponíveis só funcionarão com a aplicação rodando, lembre-se disso.
 
